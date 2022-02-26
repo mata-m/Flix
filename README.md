@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # CodePath-Flix
 Flix App for CodePath Assignment 1
 =======
@@ -30,4 +29,3 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 ### Notes
 Describe any challenges encountered while building the app.
 Had some trouble with autolayout
->>>>>>> 6864069 (Finished User Stories)
