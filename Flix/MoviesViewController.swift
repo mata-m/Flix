@@ -34,7 +34,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 // We have to tell the table view to update itself now that we've got movies to fill it with
                  // In this case it calls the funcs from below
                 self.tableView.reloadData()
-                    print(dataDictionary)
+                    //print(dataDictionary)
                     // TODO: Get the array of movies
                     // TODO: Store the movies in a property to use elsewhere
                     // TODO: Reload your table view data
@@ -68,7 +68,27 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using seque.destination
+        // Pass the selected object to the new view controller
+        
+        // Find the selected movie
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let movie = movies[indexPath.row]
+        
+        // we're just grabbing it so we can pass it the movie. The segue already knows where it's going
+        let detailsViewController = segue.destination as! MovieDetailsViewController // we have to cast it so we get access
+                                                                              // to the correct methods/fields
+        
+        // Pass the selected move to the details view controller
+        detailsViewController.movie = movie
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+    
+    
 
 }
 
